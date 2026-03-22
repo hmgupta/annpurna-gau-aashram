@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 200 800;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Warm earthy ashram palette */
+    --background: 0.97 0.012 75;
+    --foreground: 0.22 0.04 55;
+
+    --card: 0.99 0.008 78;
+    --card-foreground: 0.22 0.04 55;
+
+    --popover: 0.99 0.008 78;
+    --popover-foreground: 0.22 0.04 55;
+
+    /* Deep amber-green primary */
+    --primary: 0.42 0.1 140;
+    --primary-foreground: 0.99 0.005 78;
+
+    --secondary: 0.93 0.025 75;
+    --secondary-foreground: 0.3 0.06 55;
+
+    --muted: 0.93 0.018 72;
+    --muted-foreground: 0.5 0.04 65;
+
+    /* Warm amber accent */
+    --accent: 0.85 0.12 75;
+    --accent-foreground: 0.22 0.06 55;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.005 78;
+
+    --border: 0.88 0.03 72;
+    --input: 0.88 0.03 72;
+    --ring: 0.42 0.1 140;
+
+    /* Chart colors */
+    --chart-1: 0.65 0.18 140;
+    --chart-2: 0.72 0.15 75;
+    --chart-3: 0.5 0.14 30;
+    --chart-4: 0.58 0.16 200;
+    --chart-5: 0.45 0.12 280;
+
+    /* Sidebar - light warm cream theme */
+    --sidebar: 0.97 0.015 78;
+    --sidebar-foreground: 0.22 0.05 40;
+    --sidebar-primary: 0.52 0.14 50;
+    --sidebar-primary-foreground: 0.98 0.01 80;
+    --sidebar-accent: 0.92 0.03 75;
+    --sidebar-accent-foreground: 0.25 0.05 40;
+    --sidebar-border: 0.88 0.03 75;
+    --sidebar-ring: 0.52 0.14 50;
+
+    /* Custom tokens */
+    --healthy: 0.52 0.15 148;
+    --healthy-bg: 0.92 0.06 148;
+    --sick: 0.55 0.22 25;
+    --sick-bg: 0.95 0.07 25;
+    --recovering: 0.68 0.18 75;
+    --recovering-bg: 0.95 0.07 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: "Fraunces", serif;
+  }
+}
+
+/* ── Custom utilities ──────────────────────────────────────────────── */
+.sidebar-gradient {
+  background: linear-gradient(
+    180deg,
+    oklch(0.97 0.015 78) 0%,
+    oklch(0.94 0.025 72) 100%
+  );
+  border-right: 1px solid oklch(0.88 0.03 75);
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.96 0.025 80) 0%,
+    oklch(0.93 0.035 72) 50%,
+    oklch(0.95 0.02 140) 100%
+  );
+}
+
+.status-healthy {
+  background-color: oklch(var(--healthy-bg));
+  color: oklch(var(--healthy));
+  border: 1px solid oklch(0.82 0.1 148);
+}
+
+.status-sick {
+  background-color: oklch(var(--sick-bg));
+  color: oklch(var(--sick));
+  border: 1px solid oklch(0.85 0.15 25);
+}
+
+.status-recovering {
+  background-color: oklch(var(--recovering-bg));
+  color: oklch(0.52 0.14 70);
+  border: 1px solid oklch(0.82 0.14 75);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.65 0.06 140);
+  border-radius: 3px;
+}
+
+/* ── Motif pattern background ──────────────────────────────────────── */
+.motif-bg {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    oklch(0.88 0.04 140 / 0.4) 0%,
+    transparent 50%
+  ), radial-gradient(
+    circle at 80% 20%,
+    oklch(0.88 0.06 75 / 0.35) 0%,
+    transparent 40%
+  ), radial-gradient(
+    circle at 50% 80%,
+    oklch(0.9 0.03 55 / 0.3) 0%,
+    transparent 45%
+  );
+}
